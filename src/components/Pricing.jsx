@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const packages = [
   {
     name: 'BASIC',
-    price: '900 лв',
+    price: '450 €',
     description: 'Perfect for small businesses and starters.',
     features: [
       '1 Page Website',
@@ -20,7 +20,7 @@ const packages = [
   },
   {
     name: 'STANDARD',
-    price: '1550 лв',
+    price: '790 €',
     description: 'For growing businesses needing custom design.',
     features: [
       'Custom Design',
@@ -36,7 +36,7 @@ const packages = [
   },
   {
     name: 'PREMIUM',
-    price: '3500+ лв',
+    price: '1800+ €',
     description: 'For brands that want a full custom experience.',
     features: [
       'Custom React / Next.js Website',
@@ -59,18 +59,18 @@ const Pricing = () => {
   return (
     <div id="pricing" className="relative bg-alt-white py-24 border-b-4 border-black overflow-hidden">
       {/* Background Grid Pattern - Checkerboard */}
-      <div className="absolute inset-0 z-0 opacity-10" 
-           style={{ 
-             backgroundImage: 'radial-gradient(#000000 1px, transparent 1px), radial-gradient(#000000 1px, transparent 1px)', 
-             backgroundSize: '40px 40px',
-             backgroundPosition: '0 0, 20px 20px'
-           }}>
+      <div className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage: 'radial-gradient(#000000 1px, transparent 1px), radial-gradient(#000000 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundPosition: '0 0, 20px 20px'
+        }}>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">PRICING</h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -92,9 +92,8 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`relative flex flex-col border-4 border-black bg-white p-8 transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none ${
-                pkg.highlight ? 'shadow-neo-red' : 'shadow-neo'
-              }`}
+              className={`relative flex flex-col border-4 border-black bg-white p-8 transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none ${pkg.highlight ? 'shadow-neo-red' : 'shadow-neo'
+                }`}
             >
               {pkg.highlight && (
                 <div className="absolute top-0 right-0 -mt-6 -mr-6 bg-alt-red text-white font-black px-6 py-2 border-4 border-black transform rotate-6 shadow-sm">
@@ -127,11 +126,10 @@ const Pricing = () => {
                 <div className="text-center text-sm text-alt-neutral font-bold mb-4 uppercase tracking-wider">Delivery: {pkg.time}</div>
                 <a
                   href="#contact"
-                  className={`w-full block text-center px-6 py-4 border-4 border-black font-black text-lg uppercase tracking-wide ${
-                    pkg.highlight
+                  className={`w-full block text-center px-6 py-4 border-4 border-black font-black text-lg uppercase tracking-wide ${pkg.highlight
                       ? 'bg-alt-red text-white hover:bg-white hover:text-alt-black'
                       : 'bg-alt-black text-white hover:bg-white hover:text-alt-black'
-                  } transition-all`}
+                    } transition-all`}
                 >
                   Select Plan
                 </a>
