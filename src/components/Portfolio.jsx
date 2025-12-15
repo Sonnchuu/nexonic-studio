@@ -3,18 +3,18 @@ import { motion as Motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'UrbanSpirit Wear',
+    title: 'STAY TRUE',
     category: 'Streetwear Brand',
     color: 'bg-purple-200',
   },
   {
-    title: 'GlowLab',
-    category: 'Beauty Studio',
+    title: 'TURNOVER',
+    category: 'Graphic design agency',
     color: 'bg-pink-200',
   },
   {
-    title: 'FitWithMiro',
-    category: 'Fitness Coach',
+    title: 'iNGAME',
+    category: 'Basketball clothing brand',
     color: 'bg-green-200',
   },
   {
