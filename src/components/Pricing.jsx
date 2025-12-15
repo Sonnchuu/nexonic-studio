@@ -4,7 +4,7 @@ import { motion as Motion } from 'framer-motion';
 const packages = [
   {
     name: 'STARTER WEBSITE',
-    price: '€900–€1200',
+    price: '€350-€550',
     description: 'Get your business online with a modern, trustworthy website that drives new customers.',
     features: [
       'Custom design matching your brand (no templates)',
@@ -20,7 +20,7 @@ const packages = [
   },
   {
     name: 'BUSINESS WEBSITE',
-    price: '€1400–€2000',
+    price: '€750–€950',
     description: 'Turn your website into a growth tool that attracts more leads — and remains easy to update without developers.',
     features: [
       'All Starter features +',
@@ -36,7 +36,7 @@ const packages = [
   },
   {
     name: 'E-COMMERCE WEBSITE',
-    price: '€2500–€4000+',
+    price: '€1200–€1800+',
     description: 'Sell online with a secure, seamless shopping experience that converts visitors into customers.',
     features: [
       'All Business Website features +',
