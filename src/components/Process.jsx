@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const steps = [
   {
@@ -40,7 +40,7 @@ const Process = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">Process</h2>
-          <motion.p 
+          <Motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,12 +48,12 @@ const Process = () => {
             className="mt-4 text-4xl leading-8 font-black tracking-tight text-alt-black sm:text-5xl"
           >
             HOW WE WORK
-          </motion.p>
+          </Motion.p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <motion.div 
+            <Motion.div 
               key={step.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ const Process = () => {
               </div>
               <h3 className="mt-6 text-xl font-black text-alt-black uppercase">{step.name}</h3>
               <p className="mt-2 text-alt-neutral font-bold">{step.description}</p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>

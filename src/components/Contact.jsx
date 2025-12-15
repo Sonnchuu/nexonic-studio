@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { supabase } from '../services/supabaseClient';
 
 import emailjs from '@emailjs/browser';
@@ -27,6 +27,9 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
+      if (!supabase) {
+        throw new Error('Supabase credentials are missing. Please add them to your .env file.')
+      }
       // 1. Save to Supabase
       const { error } = await supabase
         .from('project_inquiries')
@@ -66,7 +69,7 @@ const Contact = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -102,9 +105,9 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -180,7 +183,7 @@ const Contact = () => {
                 </button>
               </div>
             </form>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
     </div>

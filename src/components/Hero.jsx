@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -13,64 +13,63 @@ const Hero = () => {
            }}>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="pb-8 bg-transparent sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-20 px-4 sm:px-6 lg:px-8">
-          <main className="mt-10 mx-auto max-w-7xl sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <motion.h1 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-4xl tracking-tight font-black text-alt-black sm:text-5xl md:text-6xl"
+      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[7fr,3fr] gap-12 items-start pt-32 pb-20">
+          <div className="space-y-6 max-w-3xl mx-auto lg:text-left">
+            <Motion.h1
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl sm:text-6xl lg:text-[5vw] font-black leading-[0.85]"
+            >
+              <span className="block">Performance websites for brands built to scale.</span>
+              <span className="block text-alt-red">Real metrics. Real growth. No guessing.</span>
+            </Motion.h1>
+            <Motion.p
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="text-xl sm:text-2xl font-semibold text-alt-neutral space-y-2"
+            >
+              <span className="block">Fast delivery — always on time.</span>
+              <span className="block">Revenue tracked — every build drives measurable growth.</span>
+              <span className="block">Trusted across EU — proven results for scaling brands.</span>
+            </Motion.p>
+            <Motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.2 }}
+              className="flex flex-col gap-3"
+            >
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center px-14 py-5 text-xl font-black uppercase tracking-wide text-white bg-alt-red border-4 border-black hover:bg-[#E20000] transition-colors"
               >
-                <span className="block xl:inline">We Build Websites</span>{' '}
-                <span className="block text-alt-red xl:inline">That Perform.</span>
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-3 text-base text-alt-neutral font-medium sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 font-sans"
+                Book Free Consultation
+              </a>
+              <a
+                href="#portfolio"
+                className="text-lg font-black text-alt-black underline-offset-4 hover:text-alt-red hover:underline"
               >
-                Premium websites for brands, businesses and creators who want real results — not just another template.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="mt-8 sm:mt-10 sm:flex sm:justify-center lg:justify-start"
-              >
-                <div className="">
-                  <a
-                    href="#contact"
-                    className="w-full flex items-center justify-center px-8 py-4 border-4 border-black text-lg font-black text-white bg-alt-red hover:bg-white hover:text-alt-black transition-all shadow-neo hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"
-                  >
-                    Start Your Project →
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-          </main>
+                See Case Studies →
+              </a>
+              <div className="border border-black px-4 py-3 text-xs sm:text-sm font-semibold uppercase text-alt-neutral">
+                ★★★★★ 17+ successful launches across EU
+              </div>
+            </Motion.div>
+          </div>
+          <div className="hidden lg:block" />
         </div>
+        <Motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-10 text-xs sm:text-sm font-black uppercase text-alt-black text-center"
+        >
+          Websites for: E-commerce • SaaS • Service studios • B2B platforms
+        </Motion.div>
+        <div className="h-8" />
       </div>
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
-        animate={{ opacity: 1, scale: 1, rotate: 3 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-white border-l-2 border-black flex items-center justify-center relative overflow-hidden"
-      >
-
-        {/* Clean brutalist square outline */}
-        <div className="absolute w-[260px] h-[260px] border-[7px] border-gray-400 opacity-40 transform rotate-12 top-[20%] right-[18%]"></div>
-
-        {/* Red accent circle */}
-        <div className="absolute w-20 h-20 bg-alt-red border-[6px] border-black rounded-full shadow-[6px_6px_0px_#000] top-[14%] right-[10%]"></div>
-
-        {/* Guide line pointing toward headline */}
-        <div className="absolute w-[340px] h-[5px] bg-alt-red transform rotate-[-15deg] top-[60%] right-[12%] shadow-[4px_4px_0px_#000]"></div>
-
-    </motion.div>
-
     </div>
   );
 };

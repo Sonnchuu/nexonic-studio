@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const servicesList = [
   {
@@ -55,7 +55,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">SERVICES</h2>
-          <motion.p 
+          <Motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -63,12 +63,12 @@ const Services = () => {
             className="mt-4 text-4xl leading-8 font-black tracking-tight text-alt-black sm:text-5xl"
           >
             What We Build
-          </motion.p>
+          </Motion.p>
         </div>
 
         <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {servicesList.map((service, index) => (
-            <motion.div
+            <Motion.div
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ const Services = () => {
               <p className="text-alt-neutral font-bold">
                 {service.description}
               </p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const features = [
   {
@@ -51,7 +51,7 @@ const WhyUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="lg:text-center">
           <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">Why Us</h2>
-          <motion.p 
+          <Motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -59,13 +59,13 @@ const WhyUs = () => {
             className="mt-4 text-4xl leading-8 font-black tracking-tight text-alt-black sm:text-5xl"
           >
             NOT JUST ANOTHER AGENCY
-          </motion.p>
+          </Motion.p>
         </div>
 
         <div className="mt-20">
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {features.map((feature, index) => (
-              <motion.div 
+              <Motion.div 
                 key={feature.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -82,7 +82,7 @@ const WhyUs = () => {
                 <dd className="mt-4 ml-8 text-base text-alt-neutral font-bold">
                   {feature.description}
                 </dd>
-              </motion.div>
+              </Motion.div>
             ))}
           </dl>
         </div>
