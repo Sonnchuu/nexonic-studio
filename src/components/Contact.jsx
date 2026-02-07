@@ -81,7 +81,7 @@ const Contact = () => {
                   href="mailto:contact@nexonic-studio.com"
                   className="font-sans text-lg underline decoration-1 underline-offset-4 hover:no-underline"
                 >
-                  hello@nexonic.studio
+                  contact@nexonic-studio.com
                 </a>
               </div>
               <div className="flex items-center gap-4">
