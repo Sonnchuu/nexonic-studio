@@ -1,92 +1,88 @@
 import React from 'react';
-import { motion as Motion } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
 
-const servicesList = [
+const services = [
   {
-    title: 'Website Design & Development',
-    description: 'Custom websites built for speed, clarity and impact.',
+    id: '00-1',
+    title: 'Web Design',
+    description: 'User-centric interfaces.',
   },
   {
-    title: 'Business Websites',
-    description: 'For companies needing branding, credibility and conversions.',
+    id: '00-2',
+    title: 'UX/UI Design',
+    description: 'Functional aesthetics.',
   },
   {
-    title: 'E-Commerce Stores',
-    description: 'High-performance online shops for any product-based business.',
+    id: '00-3',
+    title: 'Creative Design',
+    description: 'Brand evolution.',
   },
   {
-    title: 'Portfolio Websites',
-    description: 'Designed for creators, influencers and professionals who need a strong personal brand.',
+    id: '00-4',
+    title: 'Product Design',
+    description: 'Systematic thinking.',
   },
   {
-    title: 'Landing Pages',
-    description: 'Optimized for campaigns, launches and conversions.',
-  },
-  {
-    title: 'Booking & Scheduling Systems',
-    description: 'Perfect for salons, clinics, services and appointments.',
-  },
-  {
-    title: 'Branding & Copywriting',
-    description: 'Strong visuals and words that build trust.',
-  },
-  {
-    title: 'Technical SEO',
-    description: 'Fast-loading, optimized foundations so Google actually finds you.',
-  },
-  {
-    title: 'Maintenance & Support',
-    description: 'Updates, improvements and peace of mind.',
+    id: '00-5',
+    title: 'Development',
+    description: 'Clean, scalable code.',
   },
 ];
 
 const Services = () => {
   return (
-    <div id="services" className="relative bg-alt-white py-24 border-b-4 border-black overflow-hidden">
-      {/* Background Grid Pattern - Checkerboard */}
-      {/* <div className="absolute inset-0 z-0 opacity-10" 
-           style={{ 
-             backgroundImage: 'radial-gradient(#000000 1px, transparent 1px), radial-gradient(#000000 1px, transparent 1px)', 
-             backgroundSize: '40px 40px',
-             backgroundPosition: '0 0, 20px 20px'
-           }}>
-      </div> */}
+    <section id="services" className="bg-white text-min-black">
+      {/* Header Section */}
+      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+        <ScrollReveal>
+          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+            Services
+          </h2>
+        </ScrollReveal>
+        <span className="font-mono text-sm tracking-widest hidden md:block">DSGN/4</span>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
-          <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">SERVICES</h2>
-          <Motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-4 text-4xl leading-8 font-black tracking-tight text-alt-black sm:text-5xl"
+      {/* Grid Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b border-min-black">
+        {services.map((service, index) => (
+          <ScrollReveal
+            key={service.id}
+            delay={index * 0.1}
+            className={`
+              group relative h-80 p-6 flex flex-col justify-between
+              border-r border-min-black border-collapse
+              ${index === services.length - 1 ? 'lg:col-span-4 border-r-0 border-t border-min-black' : ''}
+              lg:border-r 
+              last:border-r-0
+              hover:bg-min-black hover:text-white transition-colors duration-300 cursor-default
+            `}
           >
-            What We Build
-          </Motion.p>
-        </div>
+            {/* Number */}
+            <span className="font-mono text-xs tracking-widest opacity-70 group-hover:opacity-100">
+              {service.id}
+            </span>
 
-        <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {servicesList.map((service, index) => (
-            <Motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative border-4 border-black bg-white p-8 shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all"
-            >
-              <h3 className="text-xl font-black text-alt-black uppercase mb-4">
+            {/* Content */}
+            <div>
+              <h3 className="font-sans text-3xl font-medium uppercase tracking-tight mb-2">
                 {service.title}
               </h3>
-              <p className="text-alt-neutral font-bold">
+              {/* Description reveals on hover or sits there nicely */}
+              <p className="font-sans text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {service.description}
               </p>
-            </Motion.div>
-          ))}
-        </div>
+            </div>
+
+            {/* Arrow Icon */}
+            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 14L14 1M14 1H1M14 1V14" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,54 +1,111 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Services', href: '#services' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Process', href: '#process' },
+  ];
 
   return (
-    <nav className="border-b-2 border-black bg-alt-white sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <span className="font-heading font-black text-3xl tracking-tighter text-alt-black">
-              NEXONIC<span className="text-alt-red">.</span><span className="text-lg font-bold ml-1">STUDIO</span>
-            </span>
-          </div>
-          
-          <div className="hidden md:flex space-x-8 items-center">
-            <a href="#services" className="text-alt-black hover:text-alt-red font-bold text-lg transition-colors uppercase tracking-wide">Services</a>
-            <a href="#portfolio" className="text-alt-black hover:text-alt-red font-bold text-lg transition-colors uppercase tracking-wide">Portfolio</a>
-            <a href="#process" className="text-alt-black hover:text-alt-red font-bold text-lg transition-colors uppercase tracking-wide">Process</a>
-            <a href="#contact" className="bg-alt-red text-white font-black py-3 px-6 border-2 border-black hover:bg-white hover:text-alt-black hover:border-black transition-all shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] uppercase tracking-wider">
-              Start Project
-            </a>
-          </div>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-white'} border-b border-min-black`}>
+      <div className="grid grid-cols-2 md:grid-cols-12 h-20 items-stretch">
 
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-alt-black hover:text-alt-red focus:outline-none">
-              <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+        {/* Logo Section */}
+        <div className="md:col-span-3 border-r border-min-black flex items-center px-6 sm:px-8">
+          <a href="#" className="font-sans text-xl font-medium tracking-tighter uppercase z-50 relative">
+            Nexonic Studio
+          </a>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex md:col-span-6 items-center justify-center border-r border-min-black">
+          <div className="flex space-x-12">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-sans text-sm font-medium uppercase tracking-wide hover:text-min-gray transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
+        </div>
+
+        {/* CTA / Mobile Menu Toggle */}
+        <div className="md:col-span-3 flex items-center justify-end px-6 sm:px-8">
+          <a
+            href="#contact"
+            className="hidden md:flex font-mono text-xs uppercase tracking-widest border border-min-black px-6 py-2 rounded-full hover:bg-min-black hover:text-white transition-colors"
+          >
+            Start Project
+          </a>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden z-50 relative w-8 h-8 flex flex-col justify-center space-y-1.5 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <Motion.span
+              animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }}
+              className="block w-full h-0.5 bg-min-black"
+            />
+            <Motion.span
+              animate={{ opacity: isOpen ? 0 : 1 }}
+              className="block w-full h-0.5 bg-min-black"
+            />
+            <Motion.span
+              animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -6 : 0 }}
+              className="block w-full h-0.5 bg-min-black"
+            />
+          </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden border-t-4 border-black bg-alt-white absolute w-full shadow-xl">
-          <div className="px-4 pt-4 pb-6 space-y-2">
-            <a href="#services" className="block px-3 py-2 text-alt-black hover:bg-alt-gray hover:text-alt-red font-black text-xl uppercase" onClick={() => setIsOpen(false)}>Services</a>
-            <a href="#portfolio" className="block px-3 py-2 text-alt-black hover:bg-alt-gray hover:text-alt-red font-black text-xl uppercase" onClick={() => setIsOpen(false)}>Portfolio</a>
-            <a href="#process" className="block px-3 py-2 text-alt-black hover:bg-alt-gray hover:text-alt-red font-black text-xl uppercase" onClick={() => setIsOpen(false)}>Process</a>
-            <a href="#contact" className="block mt-4 text-center bg-alt-red text-white font-black py-3 border-4 border-black shadow-neo active:shadow-none active:translate-x-[2px] active:translate-y-[2px]" onClick={() => setIsOpen(false)}>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <Motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-20 left-0 w-full bg-white border-b border-min-black shadow-xl md:hidden flex flex-col"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="p-6 border-b border-min-black last:border-b-0 font-sans text-2xl font-medium uppercase tracking-tight hover:bg-min-black hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="p-6 bg-min-black text-white font-mono text-sm uppercase tracking-widest text-center"
+            >
               Start Project
             </a>
-          </div>
-        </div>
-      )}
+          </Motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

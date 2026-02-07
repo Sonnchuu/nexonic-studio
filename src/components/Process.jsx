@@ -1,74 +1,66 @@
 import React from 'react';
-import { motion as Motion } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
 
 const steps = [
   {
     id: '01',
-    name: 'Discovery Call',
-    description: 'We learn your goals, audience and project requirements.',
+    name: 'Listen',
+    description: 'Understanding constraints.',
   },
   {
     id: '02',
-    name: 'Wireframe',
-    description: 'We map out the structure, layout and flow.',
+    name: 'Define',
+    description: 'Setting coordinates.',
   },
   {
     id: '03',
-    name: 'Design',
-    description: 'We create the full visual direction, UI and branding.',
+    name: 'Create',
+    description: 'Building the structure.',
   },
   {
     id: '04',
-    name: 'Development',
-    description: 'We build a clean, fast and optimized website.',
-  },
-  {
-    id: '05',
-    name: 'Launch',
-    description: 'Testing, final polish and going live.',
-  },
-  {
-    id: '06',
-    name: 'Support',
-    description: 'Ongoing improvements, updates and growth.',
+    name: 'Refine',
+    description: 'Polishing the surface.',
   },
 ];
 
 const Process = () => {
   return (
-    <div id="process" className="bg-alt-white py-24 border-b-4 border-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-alt-red font-black tracking-wide uppercase border-b-4 border-alt-red inline-block pb-1">Process</h2>
-          <Motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-4 text-4xl leading-8 font-black tracking-tight text-alt-black sm:text-5xl"
-          >
-            HOW WE WORK
-          </Motion.p>
-        </div>
+    <div id="process" className="bg-white text-min-black border-b border-min-black">
+      {/* Header */}
+      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+        <ScrollReveal>
+          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+            Process
+          </h2>
+        </ScrollReveal>
+        <span className="font-mono text-sm tracking-widest hidden md:block">WORK/FLOW</span>
+      </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, index) => (
-            <Motion.div 
-              key={step.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative border-4 border-black p-6 hover:shadow-neo transition-all duration-300 group bg-white hover:-translate-y-1"
-            >
-              <div className="absolute -top-5 -left-5 bg-alt-red text-white font-black text-xl w-12 h-12 flex items-center justify-center border-4 border-black shadow-neo-sm">
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-4">
+        {steps.map((step, index) => (
+          <ScrollReveal
+            key={step.id}
+            delay={index * 0.1}
+            className="group relative h-96 p-6 flex flex-col justify-between border-r border-min-black last:border-r-0 hover:bg-min-black hover:text-white transition-colors duration-300"
+          >
+            <div className="flex justify-between items-start">
+              <span className="font-mono text-xs tracking-widest border border-current rounded-full px-2 py-1">
                 {step.id}
-              </div>
-              <h3 className="mt-6 text-xl font-black text-alt-black uppercase">{step.name}</h3>
-              <p className="mt-2 text-alt-neutral font-bold">{step.description}</p>
-            </Motion.div>
-          ))}
-        </div>
+              </span>
+            </div>
+
+            <div className="mt-auto">
+              <h3 className="font-sans text-2xl font-medium uppercase tracking-tight mb-4">
+                {step.name}
+              </h3>
+              <p className="font-sans text-sm font-light leading-relaxed max-w-[200px]">
+                {step.description}
+              </p>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </div>
   );
