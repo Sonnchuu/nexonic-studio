@@ -22,11 +22,11 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-white'} border-b border-min-black`}>
-      <div className="grid grid-cols-2 md:grid-cols-12 h-20 items-stretch">
+      <div className="grid grid-cols-2 md:grid-cols-12 h-16 sm:h-20 items-stretch">
 
         {/* Logo Section */}
-        <div className="md:col-span-3 border-r border-min-black flex items-center px-6 sm:px-8">
-          <a href="#" className="font-sans text-xl font-medium tracking-tighter uppercase z-50 relative">
+        <div className="md:col-span-3 border-r border-min-black flex items-center px-4 sm:px-8">
+          <a href="#" className="font-sans text-base sm:text-xl font-medium tracking-tighter uppercase z-50 relative">
             Nexonic Studio
           </a>
         </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-sans text-sm font-medium uppercase tracking-wide hover:text-min-gray transition-colors"
+                className="font-sans text-sm font-medium uppercase tracking-wide px-2 py-1 hover:bg-[#282828] hover:text-white transition-colors duration-500"
               >
                 {link.name}
               </a>
@@ -47,18 +47,19 @@ const Navbar = () => {
         </div>
 
         {/* CTA / Mobile Menu Toggle */}
-        <div className="md:col-span-3 flex items-center justify-end px-6 sm:px-8">
+        <div className="md:col-span-3 flex items-center justify-end px-4 sm:px-8">
           <a
             href="#contact"
-            className="hidden md:flex font-mono text-xs uppercase tracking-widest border border-min-black px-6 py-2 rounded-full hover:bg-min-black hover:text-white transition-colors"
+            className="hidden md:flex font-mono text-xs uppercase tracking-widest border border-min-black px-6 py-2 rounded-full hover:bg-[#282828] hover:text-white transition-colors duration-500"
           >
             Start Project
           </a>
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden z-50 relative w-8 h-8 flex flex-col justify-center space-y-1.5 focus:outline-none"
+            className="md:hidden z-50 relative w-7 h-7 sm:w-8 sm:h-8 flex flex-col justify-center space-y-1.5 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             <Motion.span
               animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }}
@@ -84,14 +85,14 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-20 left-0 w-full bg-white border-b border-min-black shadow-xl md:hidden flex flex-col"
+            className="absolute top-16 sm:top-20 left-0 w-full bg-white border-b border-min-black shadow-xl md:hidden flex flex-col"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="p-6 border-b border-min-black last:border-b-0 font-sans text-2xl font-medium uppercase tracking-tight hover:bg-min-black hover:text-white transition-colors"
+                className="p-6 border-b border-min-black last:border-b-0 font-sans text-2xl font-medium uppercase tracking-tight hover:bg-[#282828] hover:text-white transition-colors duration-500"
               >
                 {link.name}
               </a>

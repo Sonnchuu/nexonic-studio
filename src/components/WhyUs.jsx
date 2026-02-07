@@ -28,9 +28,9 @@ const WhyUs = () => {
   return (
     <div className="bg-white text-min-black border-b border-min-black">
       {/* Header */}
-      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+      <div className="border-b border-min-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12 flex justify-between items-end">
         <ScrollReveal>
-          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter uppercase">
             Philosophy
           </h2>
         </ScrollReveal>
@@ -43,7 +43,7 @@ const WhyUs = () => {
           <ScrollReveal
             key={feature.id}
             delay={index * 0.1}
-            className="group h-64 p-8 border-r border-min-black last:border-r-0 border-b lg:border-b-0 flex flex-col justify-between hover:bg-min-black hover:text-white transition-colors duration-300"
+            className="group h-56 sm:h-64 p-6 sm:p-8 border-b border-min-black md:border-r md:even:border-r-0 lg:even:border-r lg:last:border-r-0 lg:border-b-0 last:border-b-0 flex flex-col justify-between hover:bg-[#282828] hover:text-white transition-colors duration-500"
           >
             <span className="font-mono text-xs tracking-widest border border-current rounded-full w-6 h-6 flex items-center justify-center">
               {feature.id}

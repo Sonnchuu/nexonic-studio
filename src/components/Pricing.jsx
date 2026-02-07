@@ -47,9 +47,9 @@ const Pricing = () => {
       className="bg-white text-min-black border-b border-min-black"
     >
       {/* Header */}
-      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+      <div className="border-b border-min-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12 flex justify-between items-end">
         <ScrollReveal>
-          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter uppercase">
             Investment
           </h2>
         </ScrollReveal>
@@ -64,9 +64,9 @@ const Pricing = () => {
           <ScrollReveal
             key={plan.id}
             delay={index * 0.1}
-            className="group border-r border-min-black last:border-r-0 flex flex-col justify-between hover:bg-min-black hover:text-white transition-colors duration-300"
+            className="group border-b border-min-black lg:border-b-0 lg:border-r lg:last:border-r-0 last:border-b-0 flex flex-col justify-between hover:bg-[#282828] hover:text-white transition-colors duration-300"
           >
-            <div className="p-8 border-b border-min-black group-hover:border-white/20 transition-colors">
+            <div className="p-6 sm:p-8 border-b border-current transition-colors duration-300">
               <div className="flex justify-between items-start mb-8">
                 <h3 className="font-sans text-3xl font-medium uppercase tracking-tight">
                   {plan.name}
@@ -75,7 +75,7 @@ const Pricing = () => {
                   {plan.id}
                 </span>
               </div>
-              <div className="text-5xl font-light tracking-tight mb-2">
+              <div className="text-4xl sm:text-5xl font-light tracking-tight mb-2">
                 {plan.price}
               </div>
               <p className="font-mono text-xs uppercase tracking-widest opacity-70">
@@ -83,12 +83,12 @@ const Pricing = () => {
               </p>
             </div>
 
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-6 sm:p-8">
               <ul className="space-y-4">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-center text-sm font-light"
+                    className="flex items-center text-sm sm:text-base font-light"
                   >
                     <span className="w-1.5 h-1.5 bg-current mr-3 rounded-full"></span>
                     {feature}
@@ -99,7 +99,7 @@ const Pricing = () => {
 
             <a
               href="#contact"
-              className="block p-6 text-center border-t border-min-black group-hover:border-white/20 font-sans text-lg font-medium uppercase hover:bg-white hover:text-min-black transition-colors"
+              className="block p-6 text-center border-t border-current font-sans text-lg font-medium uppercase hover:bg-[#282828] hover:text-white transition-colors duration-300"
             >
               Select Plan
             </a>

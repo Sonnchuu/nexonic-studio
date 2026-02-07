@@ -54,9 +54,9 @@ const Contact = () => {
       className="bg-white text-min-black border-b border-min-black"
     >
       {/* Header */}
-      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+      <div className="border-b border-min-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12 flex justify-between items-end">
         <ScrollReveal>
-          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter uppercase">
             Contact
           </h2>
         </ScrollReveal>
@@ -67,28 +67,28 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left: Info */}
-        <div className="border-r border-min-black p-8 sm:p-12 flex flex-col justify-between">
+        <div className="lg:border-r border-min-black p-6 sm:p-12 flex flex-col justify-between border-b lg:border-b-0 border-min-black">
           <ScrollReveal>
-            <p className="font-sans text-3xl font-light mb-8 max-w-md">
+            <p className="font-sans text-2xl sm:text-3xl font-light mb-8 max-w-md">
               Ready to structure your digital presence? Initiate the sequence.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-xs uppercase tracking-widest w-20">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span className="font-mono text-xs uppercase tracking-widest sm:w-20">
                   Email
                 </span>
                 <a
                   href="mailto:contact@nexonic-studio.com"
-                  className="font-sans text-lg underline decoration-1 underline-offset-4 hover:no-underline"
+                  className="font-sans text-base sm:text-lg underline decoration-1 underline-offset-4 px-2 py-1 hover:bg-[#282828] hover:text-white transition-colors duration-500 break-all sm:break-normal"
                 >
                   contact@nexonic-studio.com
                 </a>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-xs uppercase tracking-widest w-20">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span className="font-mono text-xs uppercase tracking-widest sm:w-20">
                   Loc
                 </span>
-                <span className="font-sans text-lg">Global / Remote</span>
+                <span className="font-sans text-base sm:text-lg">Global / Remote</span>
               </div>
             </div>
           </ScrollReveal>
@@ -98,7 +98,7 @@ const Contact = () => {
         <form onSubmit={handleSubmit} className="grid grid-rows-3">
           <ScrollReveal
             delay={0.1}
-            className="border-b border-min-black p-0 group focus-within:bg-min-black focus-within:text-white transition-colors duration-300"
+            className="border-b border-min-black p-0 group focus-within:bg-[#282828] focus-within:text-white transition-colors duration-300"
           >
             <input
               type="text"
@@ -112,7 +112,7 @@ const Contact = () => {
           </ScrollReveal>
           <ScrollReveal
             delay={0.2}
-            className="border-b border-min-black p-0 group focus-within:bg-min-black focus-within:text-white transition-colors duration-300"
+            className="border-b border-min-black p-0 group focus-within:bg-[#282828] focus-within:text-white transition-colors duration-300"
           >
             <input
               type="email"
@@ -124,11 +124,8 @@ const Contact = () => {
               className="w-full h-full px-8 sm:px-12 bg-transparent text-xl font-sans placeholder-current focus:outline-none uppercase tracking-wide"
             />
           </ScrollReveal>
-          <ScrollReveal
-            delay={0.3}
-            className="p-0 flex border-b border-min-black lg:border-b-0"
-          >
-            <div className="flex-1 border-r border-min-black group focus-within:bg-min-black focus-within:text-white transition-colors duration-300">
+          <ScrollReveal delay={0.3} className="p-0 flex flex-col sm:flex-row border-b border-min-black lg:border-b-0">
+            <div className="flex-1 sm:border-r border-min-black group focus-within:bg-[#282828] focus-within:text-white transition-colors duration-300">
               <textarea
                 name="project_details"
                 required
@@ -136,13 +133,13 @@ const Contact = () => {
                 value={formData.project_details}
                 onChange={handleChange}
                 placeholder="BRIEF"
-                className="w-full h-full p-8 sm:px-12 py-8 bg-transparent text-xl font-sans placeholder-current focus:outline-none uppercase tracking-wide resize-none"
+                className="w-full h-full p-6 sm:px-12 sm:py-8 bg-transparent text-lg sm:text-xl font-sans placeholder-current focus:outline-none uppercase tracking-wide resize-none"
               ></textarea>
             </div>
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-32 sm:w-48 bg-white text-min-black hover:bg-min-black hover:text-white transition-colors flex items-center justify-center border-l border-min-black"
+              className="w-full sm:w-48 h-16 sm:h-auto bg-white text-min-black hover:bg-[#282828] hover:text-white transition-colors duration-500 flex items-center justify-center border-t sm:border-t-0 sm:border-l border-min-black"
             >
               <span className="font-mono text-sm tracking-widest uppercase">
                 {status === "loading" ? "WAIT" : "SEND"}

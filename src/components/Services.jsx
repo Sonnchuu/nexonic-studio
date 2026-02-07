@@ -33,9 +33,9 @@ const Services = () => {
   return (
     <section id="services" className="bg-white text-min-black">
       {/* Header Section */}
-      <div className="border-b border-min-black px-6 sm:px-8 lg:px-12 py-12 flex justify-between items-end">
+      <div className="border-b border-min-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12 flex justify-between items-end">
         <ScrollReveal>
-          <h2 className="font-sans text-6xl md:text-8xl font-medium tracking-tighter uppercase">
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter uppercase">
             Services
           </h2>
         </ScrollReveal>
@@ -49,12 +49,12 @@ const Services = () => {
             key={service.id}
             delay={index * 0.1}
             className={`
-              group relative h-80 p-6 flex flex-col justify-between
-              border-r border-min-black border-collapse
-              ${index === services.length - 1 ? 'lg:col-span-4 border-r-0 border-t border-min-black' : ''}
-              lg:border-r 
-              last:border-r-0
-              hover:bg-min-black hover:text-white transition-colors duration-300 cursor-default
+              group relative h-64 sm:h-72 lg:h-80 p-5 sm:p-6 flex flex-col justify-between
+              border-b border-min-black md:border-r
+              ${index === services.length - 1 ? 'md:col-span-2 lg:col-span-4 md:border-r-0' : ''}
+              md:last:border-r-0
+              last:border-b-0
+              hover:bg-[#282828] hover:text-white transition-colors duration-500 cursor-default
             `}
           >
             {/* Number */}
@@ -68,13 +68,13 @@ const Services = () => {
                 {service.title}
               </h3>
               {/* Description reveals on hover or sits there nicely */}
-              <p className="font-sans text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="font-sans text-sm font-light opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 {service.description}
               </p>
             </div>
 
             {/* Arrow Icon */}
-            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-6 right-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 14L14 1M14 1H1M14 1V14" stroke="currentColor" strokeWidth="1.5" />
               </svg>
