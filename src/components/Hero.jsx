@@ -4,7 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const Hero = () => {
   return (
-    <div className="relative bg-white min-h-screen flex flex-col pt-20 text-min-black">
+    <div className="relative bg-white min-h-screen flex flex-col pt-16 sm:pt-20 text-min-black">
       {/* Grid Container */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 border-b border-min-black">
         {/* Left Cell: Main Title */}
@@ -22,7 +22,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 sm:mt-12 font-project-blackbird font-medium text-[clamp(4.45rem,16vw,7.35rem)] lg:text-[clamp(5.82rem,8vw,8rem)] tracking-tighter leading-[0.84] uppercase"
+            className="mt-8 sm:mt-12 font-project-blackbird font-medium text-[clamp(3.35rem,14.5vw,4.95rem)] sm:text-[clamp(4.7rem,13vw,6.8rem)] lg:text-[clamp(5.82rem,8vw,8rem)] tracking-[-0.02em] sm:tracking-tighter leading-[0.88] sm:leading-[0.84] uppercase"
           >
             Constructing
             <br />
